@@ -16,10 +16,548 @@
       background: #f0f2f5;
       padding: 24px 16px;
     }
-    </style>
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-bottom: 32px;
+      font-size: 0.95rem;
+    }
+
+    .section {
+      background: #f8f9ff;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid #e8eaf6;
+    }
+
+    .section h2 {
+      font-size: 1.1rem;
+      color: #3f51b5;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input, select, textarea {
+      padding: 10px 14px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      background: #fff;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #3f51b5;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 8px 0;
+    }
+
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .info-note {
+      background: #e8f4fd;
+      border-left: 4px solid #2196f3;
+      padding: 10px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.85rem;
+      color: #1565c0;
+      margin-top: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3f51b5, #2196f3);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(63,81,181,0.4);
+    }
+
+    .whatsapp-btns {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-wa-msg {
+      background: #25D366;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .btn-wa-call {
+      background: #128C7E;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .btn-wa-msg:hover, .btn-wa-call:hover {
+      transform: translateY(-2px);
+    }
+
+    .children-container {
+      margin-top: 16px;
+    }
+
+    .child-card {
+      background: #fff;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .child-card h3 {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .add-btn {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 2px dashed #66bb6a;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      transition: background 0.2s;
+    }
+
+    .add-btn:hover {
+      background: #c8e6c9;
+    }
+
+    .remove-btn {
+      background: #ffebee;
+      color: #c62828;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      float: right;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 16px; }
+      h1 { font-size: 1.4rem; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Family Registration Form V1 Final - Tragad Soni Community -->
-  <!-- Full form content preserved from original file -->
+  <div class="container">
+    <h1>🏠 Family Registration</h1>
+    <p class="subtitle">Preserve family roots · Complete lineage record</p>
+
+    <form id="familyForm">
+
+      <!-- Family Identification -->
+      <div class="section">
+        <h2>🔖 Family Identification</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Family / Surname *</label>
+            <input type="text" id="surname" placeholder="e.g. Soni" required />
+          </div>
+          <div class="form-group">
+            <label>Native Village / Town</label>
+            <input type="text" id="nativeVillage" placeholder="Native place" />
+          </div>
+          <div class="form-group">
+            <label>Current City (Residence)</label>
+            <input type="text" id="currentCity" placeholder="Where you live now" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Head of Family -->
+      <div class="section">
+        <h2>👑 Head of Family</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Head Full Name *</label>
+            <input type="text" id="headName" placeholder="Full name" required />
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" id="headDOB" />
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="headAge" placeholder="Age" min="0" max="120" />
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="headMobile" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="headWhatsApp" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="form-group">
+            <label>Alternate Number</label>
+            <input type="tel" id="headAlt" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="headEmail" placeholder="email@example.com" />
+          </div>
+          <div class="form-group">
+            <label>Occupation</label>
+            <input type="text" id="headOccupation" placeholder="Profession / Business" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Spouse Details -->
+      <div class="section">
+        <h2>💍 Spouse Details</h2>
+        <div class="form-group" style="margin-bottom:16px;">
+          <label>Living Status</label>
+          <div class="radio-group">
+            <label><input type="radio" name="spouseStatus" value="living" checked onchange="toggleSpouse(this)"> Living</label>
+            <label><input type="radio" name="spouseStatus" value="notliving" onchange="toggleSpouse(this)"> Not Living (skip details)</label>
+          </div>
+        </div>
+        <div id="spouseDetails" class="form-grid">
+          <div class="form-group">
+            <label>Spouse Full Name</label>
+            <input type="text" id="spouseName" placeholder="Spouse name" />
+          </div>
+          <div class="form-group">
+            <label>Spouse DOB</label>
+            <input type="date" id="spouseDOB" />
+          </div>
+          <div class="form-group">
+            <label>Age</label>
+            <input type="number" id="spouseAge" placeholder="Age" min="0" max="120" />
+          </div>
+          <div class="form-group">
+            <label>Spouse Maiden Surname</label>
+            <input type="text" id="spouseMaiden" placeholder="Before marriage surname" />
+          </div>
+          <div class="form-group">
+            <label>Spouse Occupation</label>
+            <input type="text" id="spouseOcc" placeholder="Profession" />
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="spouseMobile" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="form-group">
+            <label>WhatsApp Number</label>
+            <input type="tel" id="spouseWA" placeholder="+91 XXXXX XXXXX" />
+          </div>
+          <div class="form-group">
+            <label>Alternate Number</label>
+            <input type="tel" id="spouseAlt" placeholder="+91 XXXXX XXXXX" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Children Details -->
+      <div class="section">
+        <h2>👶 Children Details</h2>
+        <div class="form-grid" style="margin-bottom:16px;">
+          <div class="form-group">
+            <label>Number of Sons</label>
+            <input type="number" id="numSons" placeholder="0" min="0" max="20" onchange="renderChildren()" />
+          </div>
+          <div class="form-group">
+            <label>Number of Daughters</label>
+            <input type="number" id="numDaughters" placeholder="0" min="0" max="20" onchange="renderChildren()" />
+          </div>
+        </div>
+        <div class="info-note">
+          <strong>Note:</strong> Children above 0 months of age (including infants) can be added. For girls, you will see an extra "Son-in-law" field after marriage. Grandchildren can be added under any child.
+        </div>
+        <div class="children-container" id="childrenContainer"></div>
+      </div>
+
+      <!-- Family Address -->
+      <div class="section">
+        <h2>📍 Family Address</h2>
+        <div class="form-group" style="margin-bottom:16px;">
+          <label>Full Address</label>
+          <textarea id="fullAddress" placeholder="House/Flat no., Street, Area, Landmark..."></textarea>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>State *</label>
+            <select id="stateSelect" required onchange="updateCities()">
+              <option value="">-- Select State --</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group" id="cityGroup">
+            <label>City / Location *</label>
+            <select id="citySelect" required>
+              <option value="">-- Select State First --</option>
+            </select>
+            <input type="text" id="cityManual" placeholder="Type your city" style="display:none;margin-top:8px;" />
+          </div>
+          <div class="form-group">
+            <label>Pincode</label>
+            <input type="text" id="pincode" placeholder="6-digit pincode" maxlength="6" />
+          </div>
+        </div>
+        <div class="info-note">
+          ℹ️ For states other than Gujarat/Maharashtra, select "Other" and type your city. For Gujarat/Maharashtra, if city not listed, choose "Other (type manually)".
+        </div>
+      </div>
+
+      <!-- Additional Info -->
+      <div class="section">
+        <h2>📋 Additional Info</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Blood Groups (family members)</label>
+            <input type="text" id="bloodGroups" placeholder="e.g. A+, O-, B+" />
+          </div>
+          <div class="form-group">
+            <label>Special Skills</label>
+            <input type="text" id="skills" placeholder="e.g. Jewelry design, Music" />
+          </div>
+          <div class="form-group">
+            <label>Business/Organization</label>
+            <input type="text" id="business" placeholder="Business or org name" />
+          </div>
+          <div class="form-group">
+            <label>Anniversary Date</label>
+            <input type="date" id="anniversary" />
+          </div>
+          <div class="form-group">
+            <label>Membership Since</label>
+            <input type="text" id="memberSince" placeholder="Year or date" />
+          </div>
+          <div class="form-group">
+            <label>Notes / Remarks</label>
+            <textarea id="notes" placeholder="Any additional information..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="section">
+        <button type="button" class="btn-primary" onclick="submitForm()">
+          📄 Submit Registration &amp; Get ID →
+        </button>
+        <div class="whatsapp-btns">
+          <a href="https://wa.me/919727413309" target="_blank" class="btn-wa-msg">💬 WhatsApp Message</a>
+          <a href="tel:+919727413309" class="btn-wa-call">📞 WhatsApp Call</a>
+        </div>
+        <div class="info-note" style="margin-top:12px;">
+          ℹ️ Click on the button after you fill the form, or call now only to clear your doubt to fill up the form.
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    const gujaratCities = ["Ahmedabad","Surat","Vadodara","Rajkot","Bhavnagar","Jamnagar","Junagadh","Gandhinagar","Anand","Nadiad","Mehsana","Morbi","Surendranagar","Bharuch","Valsad","Navsari","Palanpur","Patan","Porbandar","Veraval","Other (type manually)"];
+    const maharashtraCities = ["Mumbai","Pune","Nagpur","Nashik","Aurangabad","Solapur","Thane","Kolhapur","Amravati","Nanded","Sangli","Malegaon","Jalgaon","Akola","Latur","Dhule","Ahmednagar","Chandrapur","Parbhani","Ichalkaranji","Other (type manually)"];
+
+    function updateCities() {
+      const state = document.getElementById('stateSelect').value;
+      const citySelect = document.getElementById('citySelect');
+      const cityManual = document.getElementById('cityManual');
+      citySelect.innerHTML = '<option value="">-- Select City --</option>';
+      cityManual.style.display = 'none';
+
+      let cities = [];
+      if (state === 'Gujarat') cities = gujaratCities;
+      else if (state === 'Maharashtra') cities = maharashtraCities;
+      else if (state === 'Other') {
+        citySelect.style.display = 'none';
+        cityManual.style.display = 'block';
+        return;
+      }
+      citySelect.style.display = 'block';
+      cities.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c; opt.textContent = c;
+        citySelect.appendChild(opt);
+      });
+      citySelect.addEventListener('change', function() {
+        if (this.value === 'Other (type manually)') {
+          cityManual.style.display = 'block';
+        } else {
+          cityManual.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleSpouse(radio) {
+      const details = document.getElementById('spouseDetails');
+      details.style.display = radio.value === 'living' ? 'grid' : 'none';
+    }
+
+    function renderChildren() {
+      const sons = parseInt(document.getElementById('numSons').value) || 0;
+      const daughters = parseInt(document.getElementById('numDaughters').value) || 0;
+      const container = document.getElementById('childrenContainer');
+      container.innerHTML = '';
+
+      for (let i = 1; i <= sons; i++) {
+        container.appendChild(createChildCard('Son', i, false));
+      }
+      for (let i = 1; i <= daughters; i++) {
+        container.appendChild(createChildCard('Daughter', i, true));
+      }
+    }
+
+    function createChildCard(type, num, isDaughter) {
+      const card = document.createElement('div');
+      card.className = 'child-card';
+      card.innerHTML = `
+        <h3>${type} ${num}</h3>
+        <div class="form-grid">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="${type} ${num} name" /></div>
+          <div class="form-group"><label>Date of Birth</label><input type="date" /></div>
+          <div class="form-group"><label>Age</label><input type="number" placeholder="Age" min="0" /></div>
+          <div class="form-group"><label>Mobile</label><input type="tel" placeholder="+91 XXXXX XXXXX" /></div>
+          <div class="form-group"><label>Occupation</label><input type="text" placeholder="Profession" /></div>
+          ${isDaughter ? `<div class="form-group"><label>Son-in-law Name (if married)</label><input type="text" placeholder="Son-in-law full name" /></div>` : ''}
+        </div>
+        <button type="button" class="add-btn" style="margin-top:12px;" onclick="addGrandchild(this)">+ Add Grandchild</button>
+        <div class="grandchildren-container"></div>
+      `;
+      return card;
+    }
+
+    function addGrandchild(btn) {
+      const container = btn.nextElementSibling;
+      const card = document.createElement('div');
+      card.className = 'child-card';
+      card.style.marginLeft = '16px';
+      card.style.borderLeft = '3px solid #3f51b5';
+      const count = container.children.length + 1;
+      card.innerHTML = `
+        <h3>Grandchild ${count} <button type="button" class="remove-btn" onclick="this.closest('.child-card').remove()">Remove</button></h3>
+        <div class="form-grid">
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Grandchild name" /></div>
+          <div class="form-group"><label>Date of Birth</label><input type="date" /></div>
+          <div class="form-group"><label>Age</label><input type="number" placeholder="Age" min="0" /></div>
+          <div class="form-group"><label>Gender</label><select><option>-- Select --</option><option>Male</option><option>Female</option></select></div>
+        </div>
+      `;
+      container.appendChild(card);
+    }
+
+    function submitForm() {
+      const surname = document.getElementById('surname').value.trim();
+      const headName = document.getElementById('headName').value.trim();
+      if (!surname || !headName) {
+        alert('Please fill in the required fields: Family Surname and Head Name.');
+        return;
+      }
+      const mobile = document.getElementById('headMobile').value.trim() || document.getElementById('headWhatsApp').value.trim();
+      const city = document.getElementById('currentCity').value.trim();
+      const occ = document.getElementById('headOccupation').value.trim();
+
+      const msg = encodeURIComponent(
+        `🏠 *Family Registration - Tragad Soni*\n\n` +
+        `👑 Head: ${headName}\n` +
+        `🔖 Surname: ${surname}\n` +
+        `🏙️ City: ${city || 'N/A'}\n` +
+        `💼 Occupation: ${occ || 'N/A'}\n` +
+        `📱 Mobile: ${mobile || 'N/A'}\n\n` +
+        `_Submitted via Family Registration Form V1_`
+      );
+      window.open(`https://wa.me/919727413309?text=${msg}`, '_blank');
+    }
+  </script>
 </body>
 </html>
