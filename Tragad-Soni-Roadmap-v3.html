@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tragad Soni Website Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme="light"]{
+  --color-bg:#f7f6f2;--color-surface:#f9f8f5;--color-surface-2:#fbfbf9;
+  --color-surface-offset:#f3f0ec;--color-border:#d4d1ca;--color-divider:#dcd9d5;
+  --color-text:#28251d;--color-text-muted:#7a7974;--color-text-faint:#bab9b4;
+  --color-primary:#01696f;--color-primary-hover:#0c4e54;--color-primary-highlight:#cedcd8;
+  --color-gold:#d19900;--color-success:#437a22;--color-warning:#964219;
+  --color-error:#a12c7b;--color-blue:#006494;--color-purple:#7a39bb;
+  --color-orange:#da7101;
+  --radius-sm:0.375rem;--radius-md:0.5rem;--radius-lg:0.75rem;--radius-xl:1rem;--radius-full:9999px;
+  --shadow-sm:0 1px 2px oklch(0.2 0.01 80/0.06);--shadow-md:0 4px 12px oklch(0.2 0.01 80/0.08);--shadow-lg:0 12px 32px oklch(0.2 0.01 80/0.12);
+  --transition:180ms cubic-bezier(0.16,1,0.3,1);
+  --font-display:'Instrument Serif',Georgia,serif;--font-body:'Work Sans','Helvetica Neue',sans-serif;
+  --text-xs:clamp(0.75rem,0.7rem + 0.25vw,0.875rem);--text-sm:clamp(0.875rem,0.8rem + 0.35vw,1rem);
+  --text-base:clamp(1rem,0.95rem + 0.25vw,1.125rem);--text-lg:clamp(1.125rem,1rem + 0.75vw,1.5rem);
+  --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);--text-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+  --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;
+}
+[data-theme="dark"]{
+  --color-bg:#171614;--color-surface:#1c1b19;--color-surface-2:#201f1d;
+  --color-surface-offset:#1d1c1a;--color-border:#393836;--color-divider:#262523;
+  --color-text:#cdccca;--color-text-muted:#797876;--color-text-faint:#5a5957;
+  --color-primary:#4f98a3;--color-primary-hover:#227f8b;--color-primary-highlight:#313b3b;
+  --color-gold:#e8af34;--color-success:#6daa45;--color-warning:#bb653b;
+  --color-error:#d163a7;--color-blue:#5591c7;--color-purple:#a86fdf;--color-orange:#fdab43;
+  --shadow-sm:0 1px 2px oklch(0 0 0/0.2);--shadow-md:0 4px 12px oklch(0 0 0/0.3);--shadow-lg:0 12px 32px oklch(0 0 0/0.4);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:5rem}
+body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);line-height:1.6}
+img,svg{display:block;max-width:100%}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+a,button,[role="button"]{transition:color var(--transition),background var(--transition),box-shadow var(--transition),border-color var(--transition)}
+:focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.site-nav{position:sticky;top:0;z-index:100;background:oklch(from var(--color-bg) l c h/0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-divider);padding:var(--space-3) var(--space-6)}
+.nav-inner{max-width:1200px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4)}
+.nav-logo{display:flex;align-items:center;gap:var(--space-2);text-decoration:none;color:var(--color-text)}
+.nav-logo-mark{width:36px;height:36px;flex-shrink:0}
+.nav-brand{font-family:var(--font-display);font-size:var(--text-lg);line-height:1.1}
+.nav-subtitle{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.nav-actions{display:flex;align-items:center;gap:var(--space-3)}
+.btn-icon{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:var(--radius-md);color:var(--color-text-muted);border:1px solid var(--color-border)}
+.btn-icon:hover{color:var(--color-text);background:var(--color-surface-offset)}
+.btn-download{display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-4);background:var(--color-primary);color:#fff;border-radius:var(--radius-md);font-size:var(--text-sm);font-weight:600;text-decoration:none;border:none}
+.btn-download:hover{background:var(--color-primary-hover)}
+.nav-pills{display:flex;gap:var(--space-2);flex-wrap:wrap}
+.nav-pill{padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);font-size:var(--text-xs);font-weight:600;color:var(--color-text-muted);text-decoration:none;transition:all var(--transition);letter-spacing:.02em}
+.nav-pill:hover,.nav-pill.active{background:var(--color-primary-highlight);color:var(--color-primary)}
+.hero{max-width:1200px;margin-inline:auto;padding:var(--space-12) var(--space-6) var(--space-8)}
+.hero-tag{display:inline-flex;align-items:center;gap:var(--space-2);background:var(--color-primary-highlight);color:var(--color-primary);font-size:var(--text-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);margin-bottom:var(--space-4)}
+.hero h1{font-family:var(--font-display);font-size:var(--text-2xl);line-height:1.1;margin-bottom:var(--space-4);max-width:18ch}
+.hero-desc{font-size:var(--text-base);color:var(--color-text-muted);max-width:60ch;margin-bottom:var(--space-8)}
+.hero-stats{display:flex;gap:var(--space-8);flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-value{font-family:var(--font-display);font-size:var(--text-xl);color:var(--color-primary);line-height:1}
+.stat-label{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:500;text-transform:uppercase;letter-spacing:.04em}
+.sections{max-width:1200px;margin-inline:auto;padding:0 var(--space-6) var(--space-16)}
+.section-group{margin-bottom:var(--space-12)}
+.section-header{display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-6)}
+.section-icon{width:40px;height:40px;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-title{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.1}
+.section-desc{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:2px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:var(--space-4)}
+.card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:var(--radius-xl);padding:var(--space-5);box-shadow:var(--shadow-sm);transition:box-shadow var(--transition),transform var(--transition)}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:var(--space-3)}
+.card-badge{font-size:var(--text-xs);font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px var(--space-2);border-radius:var(--radius-full)}
+.card-title{font-weight:700;font-size:var(--text-base);margin-bottom:var(--space-2);line-height:1.3}
+.card-items{list-style:none;display:flex;flex-direction:column;gap:var(--space-2)}
+.card-item{display:flex;align-items:flex-start;gap:var(--space-2);font-size:var(--text-sm);color:var(--color-text-muted)}
+.card-item::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex-shrink:0;margin-top:.45em}
+.phases-timeline{display:flex;flex-direction:column;gap:var(--space-4)}
+.phase{display:grid;grid-template-columns:auto 1fr;gap:0 var(--space-6);align-items:start}
+.phase-num-col{display:flex;flex-direction:column;align-items:center;gap:0}
+.phase-num{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:var(--text-base);flex-shrink:0;border:2px solid}
+.phase-line{width:2px;flex:1;min-height:30px;margin:var(--space-1) auto 0;background:var(--color-divider)}
+.phase-body{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:var(--radius-xl);padding:var(--space-5);box-shadow:var(--shadow-sm);margin-bottom:var(--space-4)}
+.phase-title{font-weight:700;font-size:var(--text-base);margin-bottom:var(--space-3)}
+.phase-items{display:flex;flex-wrap:wrap;gap:var(--space-2)}
+.phase-chip{font-size:var(--text-xs);font-weight:600;padding:var(--space-1) var(--space-3);border-radius:var(--radius-full);background:var(--color-surface-offset);color:var(--color-text-muted);border:1px solid var(--color-border)}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:var(--space-3)}
+.tech-card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:var(--radius-lg);padding:var(--space-4);display:flex;align-items:center;gap:var(--space-3);box-shadow:var(--shadow-sm)}
+.tech-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.tech-label{font-size:var(--text-sm);font-weight:600}
+.tech-type{font-size:var(--text-xs);color:var(--color-text-muted)}
+.targets-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--space-4)}
+.target-card{background:var(--color-surface);border:1px solid oklch(from var(--color-text) l c h/0.08);border-radius:var(--radius-xl);padding:var(--space-6);text-align:center;box-shadow:var(--shadow-sm)}
+.target-value{font-family:var(--font-display);font-size:var(--text-2xl);color:var(--color-primary);line-height:1;margin-bottom:var(--space-2)}
+.target-label{font-size:var(--text-sm);color:var(--color-text-muted);font-weight:500}
+hr.section-divider{border:none;border-top:1px solid var(--color-divider);margin:var(--space-8) 0}
+.site-footer{background:var(--color-surface);border-top:1px solid var(--color-divider);padding:var(--space-8) var(--space-6)}
+.footer-inner{max-width:1200px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
+.footer-text{font-size:var(--text-xs);color:var(--color-text-muted)}
+.c-primary{color:var(--color-primary)}.c-gold{color:var(--color-gold)}.c-success{color:var(--color-success)}.c-blue{color:var(--color-blue)}.c-purple{color:var(--color-purple)}.c-orange{color:var(--color-orange)}.c-warning{color:var(--color-warning)}
+.bg-primary-light{background:var(--color-primary-highlight);color:var(--color-primary)}
+.bg-gold-light{background:oklch(from var(--color-gold) l c h/0.15);color:var(--color-gold)}
+.bg-success-light{background:oklch(from var(--color-success) l c h/0.15);color:var(--color-success)}
+.bg-blue-light{background:oklch(from var(--color-blue) l c h/0.15);color:var(--color-blue)}
+.bg-purple-light{background:oklch(from var(--color-purple) l c h/0.15);color:var(--color-purple)}
+.bg-orange-light{background:oklch(from var(--color-orange) l c h/0.15);color:var(--color-orange)}
+.bg-warning-light{background:oklch(from var(--color-warning) l c h/0.15);color:var(--color-warning)}
+@media(max-width:640px){.nav-pills{display:none}.hero{padding:var(--space-8) var(--space-4) var(--space-6)}.sections{padding:0 var(--space-4) var(--space-10)}.hero-stats{gap:var(--space-5)}.phase{grid-template-columns:1fr}.phase-num-col{display:none}}
+</style>
+</head>
+<body>
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top" aria-label="Tragad Soni Website Roadmap Home">
+      <svg class="nav-logo-mark" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+        <rect width="36" height="36" rx="8" fill="var(--color-primary)"/>
+        <path d="M10 10h16M18 10v16M10 26l8-8 8 8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="nav-brand">Tragad Soni</div>
+        <div class="nav-subtitle">Website Roadmap</div>
+      </div>
+    </a>
+    <nav class="nav-pills" aria-label="Section links">
+      <a href="#overview" class="nav-pill">Overview</a>
+      <a href="#modules" class="nav-pill">Modules</a>
+      <a href="#phases" class="nav-pill">Phases</a>
+      <a href="#tech" class="nav-pill">Tech</a>
+      <a href="#targets" class="nav-pill">Targets</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn-icon" data-theme-toggle aria-label="Switch to dark mode" title="Toggle theme">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="btn-download" id="download-btn" title="Download roadmap as HTML">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </button>
+    </div>
+  </div>
+</nav>
+<header id="top" class="hero">
+  <div class="hero-tag">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+    Community Heritage Platform
+  </div>
+  <h1>Tragad Soni Website Roadmap</h1>
+  <p class="hero-desc">A comprehensive digital platform preserving the heritage, identity, and connections of the Tragad Soni community across Gujarat, Maharashtra, and India.</p>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-value">5</span><span class="stat-label">Dev Phases</span></div>
+    <div class="stat"><span class="stat-value">4</span><span class="stat-label">Core Modules</span></div>
+    <div class="stat"><span class="stat-value">500+</span><span class="stat-label">Target Members</span></div>
+    <div class="stat"><span class="stat-value">3</span><span class="stat-label">Cities</span></div>
+  </div>
+</header>
+<main class="sections">
+<section id="overview" class="section-group">
+  <div class="section-header">
+    <div class="section-icon bg-primary-light">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    </div>
+    <div><div class="section-title">Project Overview</div><div class="section-desc">Goals, audience, and focus geography</div></div>
+  </div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-top"><span class="card-badge bg-primary-light">Audience</span></div><div class="card-title">Target Community</div><ul class="card-items"><li class="card-item">Tragad Soni Community members</li><li class="card-item">Families across multiple generations</li><li class="card-item">Business owners &amp; professionals</li></ul></div>
+    <div class="card"><div class="card-top"><span class="card-badge bg-gold-light">Mission</span></div><div class="card-title">Primary Goals</div><ul class="card-items"><li class="card-item">Preserve cultural heritage</li><li class="card-item">Strengthen community identity</li><li class="card-item">Connect families across regions</li></ul></div>
+    <div class="card"><div class="card-top"><span class="card-badge bg-blue-light">Geography</span></div><div class="card-title">Key Focus Areas</div><ul class="card-items"><li class="card-item">Gujarat — primary hub</li><li class="card-item">Maharashtra — major diaspora</li><li class="card-item">Pan-India reach</li></ul></div>
+  </div>
+</section>
+<hr class="section-divider">
+<section id="modules" class="section-group">
+  <div class="section-header">
+    <div class="section-icon bg-gold-light">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+    </div>
+    <div><div class="section-title">Core Platform Modules</div><div class="section-desc">Four pillars of the community platform</div></div>
+  </div>
+  <div class="cards-grid">
+    <div class="card"><div class="card-top"><span class="card-badge bg-primary-light">Portal</span></div><div class="card-title">Member Portal</div><ul class="card-items"><li class="card-item">OTP &amp; Google Authentication</li><li class="card-item">Interactive Family Tree Visualization</li><li class="card-item">Granular Privacy Controls</li></ul></div>
+    <div class="card"><div class="card-top"><span class="card-badge bg-warning-light">Matrimony</span></div><div class="card-title">Matrimony Section</div><ul class="card-items"><li class="card-item">Gotra Check &amp; Auto Blocking</li><li class="card-item">Blurred Profile Photos (privacy-first)</li><li class="card-item">Mutual Interest Reveal system</li></ul></div>
+    <div class="card"><div class="card-top"><span class="card-badge bg-orange-light">Business</span></div><div class="card-title">Trade &amp; Business Directory</div><ul class="card-items"><li class="card-item">Jewellery Specialists Listings</li><li class="card-item">Google Maps Integration</li><li class="card-item">Review &amp; Trust Badges</li></ul></div>
+    <div class="card"><div class="card-top"><span class="card-badge bg-success-light">Education</span></div><div class="card-title">Education &amp; Healthcare</div><ul class="card-items"><li class="card-item">Scholarship Applications portal</li><li class="card-item">Doctor Directory &amp; Blood Donors</li><li class="card-item">School Listings &amp; Tutors</li></ul></div>
+  </div>
+</section>
+<hr class="section-divider">
+<section id="phases" class="section-group">
+  <div class="section-header">
+    <div class="section-icon bg-blue-light">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+    </div>
+    <div><div class="section-title">Development Roadmap Phases</div><div class="section-desc">Step-by-step execution plan</div></div>
+  </div>
+  <div class="phases-timeline">
+    <div class="phase"><div class="phase-num-col"><div class="phase-num c-primary" style="border-color:var(--color-primary);background:var(--color-primary-highlight)">1</div><div class="phase-line"></div></div><div class="phase-body"><div class="phase-title">Phase 1 — Planning</div><div class="phase-items"><span class="phase-chip">Tech Stack Selection</span><span class="phase-chip">Domain &amp; Hosting Setup</span><span class="phase-chip">Stakeholder Interviews</span></div></div></div>
+    <div class="phase"><div class="phase-num-col"><div class="phase-num c-purple" style="border-color:var(--color-purple);background:oklch(from var(--color-purple) l c h/0.12)">2</div><div class="phase-line"></div></div><div class="phase-body"><div class="phase-title">Phase 2 — Design</div><div class="phase-items"><span class="phase-chip">Mobile-First Wireframes</span><span class="phase-chip">Bilingual UI (Gujarati / English)</span><span class="phase-chip">Figma Hi-Fi Mockups</span></div></div></div>
+    <div class="phase"><div class="phase-num-col"><div class="phase-num c-blue" style="border-color:var(--color-blue);background:oklch(from var(--color-blue) l c h/0.12)">3</div><div class="phase-line"></div></div><div class="phase-body"><div class="phase-title">Phase 3 — Development</div><div class="phase-items"><span class="phase-chip">Environment Setup (CI/CD)</span><span class="phase-chip">Module Integration</span><span class="phase-chip">Razorpay Payment Gateway</span></div></div></div>
+    <div class="phase"><div class="phase-num-col"><div class="phase-num c-warning" style="border-color:var(--color-warning);background:oklch(from var(--color-warning) l c h/0.12)">4</div><div class="phase-line"></div></div><div class="phase-body"><div class="phase-title">Phase 4 — Testing</div><div class="phase-items"><span class="phase-chip">Cross-Device QA</span><span class="phase-chip">30-Member Pilot Beta</span><span class="phase-chip">Security &amp; Speed Audits</span></div></div></div>
+    <div class="phase"><div class="phase-num-col"><div class="phase-num c-success" style="border-color:var(--color-success);background:oklch(from var(--color-success) l c h/0.12)">5</div></div><div class="phase-body"><div class="phase-title">Phase 5 — Launch &#x1F680;</div><div class="phase-items"><span class="phase-chip">Official Demo Event</span><span class="phase-chip">WhatsApp Marketing Drive</span><span class="phase-chip">Admin Team Training</span></div></div></div>
+  </div>
+</section>
+<hr class="section-divider">
+<section id="tech" class="section-group">
+  <div class="section-header">
+    <div class="section-icon bg-purple-light">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    </div>
+    <div><div class="section-title">Technical Stack</div><div class="section-desc">Technology choices driving the platform</div></div>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card"><div class="tech-dot" style="background:var(--color-blue)"></div><div><div class="tech-label">React.js &amp; Next.js</div><div class="tech-type">Frontend</div></div></div>
+    <div class="tech-card"><div class="tech-dot" style="background:var(--color-success)"></div><div><div class="tech-label">Node.js &amp; Express</div><div class="tech-type">Backend</div></div></div>
+    <div class="tech-card"><div class="tech-dot" style="background:var(--color-primary)"></div><div><div class="tech-label">PostgreSQL</div><div class="tech-type">Database</div></div></div>
+    <div class="tech-card"><div class="tech-dot" style="background:var(--color-purple)"></div><div><div class="tech-label">Tailwind CSS</div><div class="tech-type">Styling</div></div></div>
+    <div class="tech-card"><div class="tech-dot" style="background:var(--color-orange)"></div><div><div class="tech-label">Razorpay</div><div class="tech-type">Payments</div></div></div>
+    <div class="tech-card"><div class="tech-dot" style="background:var(--color-gold)"></div><div><div class="tech-label">Google Maps API</div><div class="tech-type">Location</div></div></div>
+  </div>
+</section>
+<hr class="section-divider">
+<section id="targets" class="section-group">
+  <div class="section-header">
+    <div class="section-icon bg-success-light">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </div>
+    <div><div class="section-title">Launch Targets</div><div class="section-desc">Key milestones post-launch</div></div>
+  </div>
+  <div class="targets-row">
+    <div class="target-card"><div class="target-value">50</div><div class="target-label">Members on Day 1</div></div>
+    <div class="target-card"><div class="target-value">500</div><div class="target-label">Members in 60 Days</div></div>
+    <div class="target-card"><div class="target-value">3</div><div class="target-label">City Coordinators</div></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-text">Tragad Soni Website Roadmap &middot; Built by SNTL84 &middot; <a href="https://github.com/SNTL84/Tragad-Soni-Website-Roadmap" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary)">GitHub Repository</a></div>
+    <div class="footer-text">&copy; 2026 SNTL84. Community platform in progress.</div>
+  </div>
+</footer>
+<script>
+(function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';r.setAttribute('data-theme',d);const icons={dark:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>',light:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'};if(t)t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=icons[d];t.setAttribute('aria-label','Switch to '+(d==='dark'?'light':'dark')+' mode');});})();
+(function(){const pills=document.querySelectorAll('.nav-pill');const sections=document.querySelectorAll('section[id]');const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){pills.forEach(p=>{p.classList.toggle('active',p.getAttribute('href')==='#'+e.target.id)});}});},{threshold:.3,rootMargin:'-60px 0px -60% 0px'});sections.forEach(s=>obs.observe(s));})();
+document.getElementById('download-btn').addEventListener('click',()=>{const html=document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='Tragad-Soni-Website-Roadmap.html';a.click();URL.revokeObjectURL(a.href);});
+</script>
+</body>
+</html>
